@@ -1,0 +1,43 @@
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import 'react-native-reanimated';
+
+
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import {useFonts, 
+  Poppins_400Regular, 
+  Poppins_600SemiBold, 
+  Poppins_700Bold } from "@expo-google-fonts/poppins";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+
+export default function RootLayout() {
+  const colorScheme = useColorScheme();
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_600SemiBold,
+    Poppins_700Bold
+  });
+
+  useEffect(() => {
+    if(fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+  if(!fontsLoaded) {
+    return null;
+  }
+
+  return (
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index"  />
+        <Stack.Screen name="(auth)"/>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="modal" />
+      </Stack>
+      <StatusBar style="auto" />
+    </ThemeProvider>
+  );
+}
