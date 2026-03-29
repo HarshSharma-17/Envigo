@@ -1,50 +1,155 @@
-# Welcome to your Expo app 👋
+# 🚗 EnviGo – Smart EV Management App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+EnviGo is a full-stack mobile application built using **React Native (Expo)** and **Firebase** that helps users manage their electric vehicles efficiently. It provides authentication, vehicle tracking, and a scalable backend for future smart mobility features.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Features
 
-   ```bash
-   npm install
-   ```
+### 🔐 Authentication
 
-2. Start the app
+* Email & Password login/signup
+* Google Sign-In integration
+* Auto-login (persistent sessions)
 
-   ```bash
-   npx expo start
-   ```
+### 👤 User Profile
 
-In the output, you'll find options to open the app in a
+* Dynamic profile data (name, email, phone)
+* Data stored in Firebase Firestore
+* Logout functionality
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 🚗 Vehicle Management
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* Add vehicles with details (battery, range, power)
+* Store vehicles in Firestore (per user)
+* View saved vehicles dynamically
+* Clean and modern UI
 
-## Get a fresh project
+### ☁️ Backend (Firebase)
 
-When you're ready, run:
+* Firebase Authentication
+* Firestore Database (NoSQL)
+* Real-time scalable structure
 
-```bash
-npm run reset-project
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** React Native (Expo)
+* **Backend:** Firebase (Auth + Firestore)
+* **Navigation:** Expo Router
+* **Language:** TypeScript
+* **UI:** Custom design with Poppins font
+
+---
+
+## 📂 Project Structure
+
+```
+app/
+ ├── (auth)/
+ │    ├── login.tsx
+ │    ├── signup.tsx
+ │    ├── onboard.tsx
+ │
+ ├── (tabs)/
+ │    ├── index.tsx
+ │    ├── profile.tsx
+ │    ├── addVehicle.tsx
+ │    ├── map.tsx
+ │
+ ├── vehicle.tsx
+ │
+config/
+ ├── firebase.ts
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🔥 Firestore Structure
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+users
+ └── userUID
+      ├── firstName
+      ├── lastName
+      ├── email
+      ├── phone
+      └── vehicles
+           └── vehicleId
+                ├── name
+                ├── battery
+                ├── range
+                ├── power
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🚀 Getting Started
 
-Join our community of developers creating universal apps.
+### 1. Clone the Repository
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+git clone https://github.com/your-username/envigo.git
+cd envigo
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Setup Firebase
+
+* Create Firebase project
+* Enable:
+
+  * Authentication (Email + Google)
+  * Firestore Database
+* Add your config in:
+
+```ts
+config/firebase.ts
+```
+
+---
+
+### 4. Run the App
+
+```bash
+npm start
+```
+
+---
+
+## 📸 Screens (Optional)
+
+* Splash Screen
+* Signup/Login
+* Profile
+* Vehicle Management
+
+*(Add screenshots here later)*
+
+---
+
+## 🚀 Future Enhancements
+
+* 🔁 Real-time vehicle updates
+* ❌ Delete & edit vehicles
+* 🗺️ EV charging station map integration
+* 💰 EnviCoins reward system
+* 🔔 Notifications (battery alerts)
+* 📊 Vehicle analytics dashboard
+
+---
+
+## 🎯 Learning Outcomes
+
+* Full-stack mobile app development
+* Firebase integration (Auth + Firestore)
+* State management and navigation
+* Clean UI/UX design
+
+---
